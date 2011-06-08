@@ -98,7 +98,7 @@
 		state: "initialized",
 		timer: null,
 		currentFrame: 0,
-		frameRate: 15,
+		frameRate: 20,
 		prevMouseX: null,
 		prevMouseY: null,
 		
@@ -156,7 +156,7 @@
 			
 			if(eventType === "click") {
 				var target = this.getDOMElementFromPoint(mouseX, mouseY);
-				$(target).not('#record, #play, #stop').click();
+				$(target).not('#record, #play, #stop, #clear').click();
 			}
 			
 			//set previous coordinate for next run
