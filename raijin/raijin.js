@@ -109,7 +109,6 @@
 		
 		//show the mouse and remove fake mouse image
 		showMouse: function() {
-			console.log('showmouse');
 			$('#raijin-cursor').hide();
 		},
 		
@@ -137,6 +136,7 @@
 			//set new coordinates
 			var mouseX = Raijin.storyScript[this.currentFrame].mouseX;
 			var mouseY = Raijin.storyScript[this.currentFrame].mouseY;
+			var eventType = Raijin.storyScript[this.currentFrame].type;
 			this.currentFrame ++;
 			
 			if(this.prevMouseX === null) {
@@ -151,6 +151,11 @@
 				    left: "+=" + xDiff,
 					top: "+=" + yDiff
 				  }, 5);
+			}
+			
+			if(eventType === "click") {
+				var target = this.getDOMElementFromPoint(mouseX, mouseY);
+				$(target).not('#record, #play, #stop').click();
 			}
 			
 			//set previous coordinate for next run
@@ -179,6 +184,13 @@
 		clear: function() {
 			this.state = "clearing";
 			Raijin.storyScript.length = 0;
+		},
+		
+		getDOMElementFromPoint: function(x,y) {
+			$('#raijin-cursor').hide(); 
+			var target = document.elementFromPoint(x,y);
+			$('#raijin-cursor').show();
+			return target;
 		}
 	}
 

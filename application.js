@@ -25,5 +25,9 @@
 	$('#stop').click(function() {
 		Raijin.story.stop();
 	});
+	
+	$("#test1").click(function() {
+		console.log('test');
+	})
 
 })(jQuery);
