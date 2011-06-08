@@ -26,8 +26,8 @@
 		Raijin.story.stop();
 	});
 	
-	$("#test1").click(function() {
-		console.log('test');
+	$(".testButton").click(function() {
+		$('#console').append('you clicked a button <br/>');
 	})
 
 })(jQuery);

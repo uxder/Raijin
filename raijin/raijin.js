@@ -68,6 +68,7 @@
 				});
 			},
 			
+
 			//get mouse position @return string "mouseX, mouseY"
 			getMousePosition: function() {
 				var position = Raijin.mouseX + "," + Raijin.mouseY;
